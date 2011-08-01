@@ -1,0 +1,178 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>API &mdash; pyunpack v0.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="pyunpack v0.0.0 documentation" href="index.html" />
+    <link rel="prev" title="command line help" href="help.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="help.html" title="command line help"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">pyunpack v0.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-pyunpack">
+<span id="api"></span><h1>API<a class="headerlink" href="#module-pyunpack" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="pyunpack.Archive">
+<em class="property">class </em><tt class="descclassname">pyunpack.</tt><tt class="descname">Archive</tt><big>(</big><em>filename</em>, <em>backend='auto'</em><big>)</big><a class="headerlink" href="#pyunpack.Archive" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>backend</strong> &#8211; <tt class="docutils literal"><span class="pre">auto</span></tt>, <tt class="docutils literal"><span class="pre">patool</span></tt> or <tt class="docutils literal"><span class="pre">zipfile</span></tt></li>
+<li><strong>filename</strong> &#8211; path to archive file</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="pyunpack.Archive.extractall">
+<tt class="descname">extractall</tt><big>(</big><em>directory</em>, <em>auto_create_dir=False</em><big>)</big><a class="headerlink" href="#pyunpack.Archive.extractall" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>directory</strong> &#8211; directory to extract to</li>
+<li><strong>auto_create_dir</strong> &#8211; auto create directory</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyunpack.Archive.extractall_patool">
+<tt class="descname">extractall_patool</tt><big>(</big><em>directory</em><big>)</big><a class="headerlink" href="#pyunpack.Archive.extractall_patool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyunpack.Archive.extractall_zipfile">
+<tt class="descname">extractall_zipfile</tt><big>(</big><em>directory</em><big>)</big><a class="headerlink" href="#pyunpack.Archive.extractall_zipfile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="pyunpack.PatoolError">
+<em class="property">exception </em><tt class="descclassname">pyunpack.</tt><tt class="descname">PatoolError</tt><a class="headerlink" href="#pyunpack.PatoolError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pyunpack.check_patool">
+<tt class="descclassname">pyunpack.</tt><tt class="descname">check_patool</tt><big>(</big><big>)</big><a class="headerlink" href="#pyunpack.check_patool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-pyunpack.cli"></span><dl class="function">
+<dt id="pyunpack.cli.extractall">
+<tt class="descclassname">pyunpack.cli.</tt><tt class="descname">extractall</tt><big>(</big><em>filename</em>, <em>directory</em>, <em>backend='auto'</em>, <em>auto_create_dir=False</em><big>)</big><a class="headerlink" href="#pyunpack.cli.extractall" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>backend</strong> &#8211; auto, patool or zipfile</li>
+<li><strong>filename</strong> &#8211; path to archive file</li>
+<li><strong>directory</strong> &#8211; directory to extract to</li>
+<li><strong>auto_create_dir</strong> &#8211; auto create directory</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="help.html"
+                        title="previous chapter">command line help</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/api.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="help.html" title="command line help"
+             >previous</a> |</li>
+        <li><a href="index.html">pyunpack v0.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, ponty.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>
