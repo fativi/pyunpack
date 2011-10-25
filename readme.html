@@ -3,17 +3,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>About &mdash; pyunpack v0.0.0 documentation</title>
+    <title>About &mdash; pyunpack 0.0.1 documentation</title>
+    
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.0.0',
+        VERSION:     '0.0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="pyunpack v0.0.0 documentation" href="index.html" />
+    <link rel="top" title="pyunpack 0.0.1 documentation" href="index.html" />
     <link rel="next" title="Usage" href="usage.html" />
     <link rel="prev" title="Indices and tables" href="index.html" /> 
   </head>
@@ -42,7 +45,7 @@
         <li class="right" >
           <a href="index.html" title="Indices and tables"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">pyunpack v0.0.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">pyunpack 0.0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -63,16 +66,28 @@
 </dd>
 <dt>Features:</dt>
 <dd><ul class="first last">
+<li><p class="first">unpack archive files without password</p>
+</li>
+<li><p class="first">very simple interface</p>
+</li>
+<li><p class="first">command line interface and library</p>
+</li>
 <li><dl class="first docutils">
 <dt>backends:</dt>
 <dd><ul class="first last simple">
-<li><a class="reference external" href="http://pypi.python.org/pypi/patool">patool</a>: optional, can handle a lot of formats using different programs</li>
 <li><a class="reference external" href="http://docs.python.org/library/zipfile.html">zipfile</a>: included in Python</li>
+<li><a class="reference external" href="http://pypi.python.org/pypi/patool">patool</a>:
+It relies on helper applications to handle those archive formats
+(for example bzip2 for BZIP2 archives).
+Supported formats:
+7z (.7z), ACE (.ace), ALZIP (.alz), AR (.a), ARC (.arc), ARJ (.arj),
+BZIP2 (.bz2), CAB (.cab), compress (.Z), CPIO (.cpio), DEB (.deb),
+DMS (.dms), GZIP (.gz), LRZIP (.lrz), LZH (.lha, .lzh), LZIP (.lz),
+LZMA (.lzma), LZOP (.lzo), RPM (.rpm), RAR (.rar), RZIP (.rz),
+TAR (.tar), XZ (.xz), ZIP (.zip, .jar) and ZOO (.zoo)</li>
 </ul>
 </dd>
 </dl>
-</li>
-<li><p class="first">command line interface</p>
 </li>
 </ul>
 </dd>
@@ -83,15 +98,24 @@
 </ul>
 </dd>
 </dl>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://pypi.python.org/pypi/patool">Patool</a> is very good at unpacking a lot of archive formats,
+but it can not be used as a python library.
+pyunpack is a workaround: <a class="reference external" href="http://pypi.python.org/pypi/patool">patool</a> is called using its command line interface.
+If <a class="reference external" href="http://pypi.python.org/pypi/patool">Patool</a> is not installed then only zip format can be unpacked
+using the internal python <a class="reference external" href="http://docs.python.org/library/zipfile.html">zipfile</a> library.
+<a class="reference external" href="http://pypi.python.org/pypi/patool">Patool</a> should be converted into a library in the future.</p>
+</div>
 </div>
 <div class="section" id="basic-usage">
 <h1>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyunpack</span> <span class="kn">import</span> <span class="n">Archive</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Archive</span><span class="p">(</span><span class="s">&#39;a.zip&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Archive</span><span class="p">(</span><span class="s">&#39;a.zip&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s">&#39;/path/to&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>or on console:</p>
-<div class="highlight-python"><pre>python -m pyunpack.cli a.zip .</pre>
+<div class="highlight-python"><pre>python -m pyunpack.cli a.zip /path/to</pre>
 </div>
 </div>
 <div class="section" id="similar-projects">
@@ -105,6 +129,9 @@
 <li><a class="reference external" href="http://pypi.python.org/pypi/pyUnRAR2">pyUnRAR2</a>: rar only</li>
 <li><a class="reference external" href="http://pypi.python.org/pypi/pylzma">pylzma</a>: LZMA only</li>
 <li><a class="reference external" href="http://pypi.python.org/pypi/easy-extract">easy-extract</a>: many formats, no simple interface for unpacking</li>
+<li><a class="reference external" href="http://pypi.python.org/pypi/python-archive">python-archive</a>: zip and tar only</li>
+<li><a class="reference external" href="http://pypi.python.org/pypi/pyarchive">pyarchive</a></li>
+<li><a class="reference external" href="http://pypi.python.org/pypi/nested.tar.archives.extractor">nested.tar.archives.extractor</a>: tar only</li>
 </ul>
 </div></blockquote>
 </div>
@@ -118,7 +145,7 @@
 </li>
 <li><p class="first">install unpackers for <a class="reference external" href="http://pypi.python.org/pypi/patool">patool</a> (optional)</p>
 </li>
-<li><p class="first">install <a class="reference external" href="http://pypi.python.org/pypi/patool">patool</a> (optional, easy_install does not work)</p>
+<li><p class="first"><a class="reference external" href="http://pypi.python.org/pypi/patool">patool</a> is installed by setup script</p>
 </li>
 <li><p class="first">install the program:</p>
 <div class="highlight-python"><pre># as root
@@ -133,7 +160,6 @@ easy_install pyunpack</pre>
 <div class="highlight-python"><pre>sudo apt-get install python-setuptools
 sudo easy_install pyunpack
 #optional
-sudo easy_install http://sourceforge.net/projects/patool/files/0.13/patool-0.13.tar.gz/download
 sudo apt-get install unzip unrar p7zip-full</pre>
 </div>
 </div>
@@ -154,7 +180,10 @@ pip uninstall pyunpack</pre>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">About</a></li>
+<li><a class="reference internal" href="#">About</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#similar-projects">Similar projects</a></li>
 <li><a class="reference internal" href="#installation">Installation</a><ul>
@@ -179,7 +208,7 @@ pip uninstall pyunpack</pre>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -208,12 +237,12 @@ pip uninstall pyunpack</pre>
         <li class="right" >
           <a href="index.html" title="Indices and tables"
              >previous</a> |</li>
-        <li><a href="index.html">pyunpack v0.0.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">pyunpack 0.0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2011, ponty.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.
     </div>
   </body>
 </html>
